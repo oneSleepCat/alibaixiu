@@ -55,10 +55,14 @@
                     password
                 },
                 success: function(result) {
-                    location.href = 'index.html';
+                    //判断用户角色
+                    if (result.role == 'admin') {
+                        location.href = 'index.html';
+                    } else {
+                        location.href = '/index.html';
+                    }
                 },
                 error: function(err) {
-                    console.log(err);
                     alert(JSON.parse(err.responseText).message)
                 }
             })

@@ -1,22 +1,14 @@
 $.ajax({
-        type: 'get',
-        url: '/posts',
-        success: function(response) {
-            var html = template('postsTpl', response);
-            $("#postsTbody").html(html);
-            var pageHtml = template('pageTpl', response);
-            $("#pageUl").html(pageHtml);
-        }
-    })
-    //处理时间格式
-function formateDate(date) {
-    //将传入的时间日期字符串转换成日期对象
-    date = new Date(date);
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-    var date = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-    return year + "-" + month + "-" + date;
-}
+    type: 'get',
+    url: '/posts',
+    success: function(response) {
+        var html = template('postsTpl', response);
+        $("#postsTbody").html(html);
+        var pageHtml = template('pageTpl', response);
+        $("#pageUl").html(pageHtml);
+    }
+})
+
 //分页
 function changePage(page) {
     $.ajax({

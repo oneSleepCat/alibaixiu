@@ -1,10 +1,3 @@
-<script src="/login/status">
-</script>
-<script>
-    if (!isLogin) {
-        location.href = 'login.html';
-    }
-</script>
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -16,6 +9,8 @@
     <link rel="stylesheet" href="../assets/vendors/nprogress/nprogress.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
     <script src="../assets/vendors/nprogress/nprogress.js"></script>
+    <script src="/login/status">
+    </script>
 </head>
 
 <body>
@@ -43,9 +38,15 @@
                             <h3 class="panel-title">站点内容统计：</h3>
                         </div>
                         <ul class="list-group">
-                            <li class="list-group-item"><strong>10</strong>篇文章（<strong>2</strong>篇草稿）</li>
-                            <li class="list-group-item"><strong>6</strong>个分类</li>
-                            <li class="list-group-item"><strong>5</strong>条评论（<strong>1</strong>条待审核）</li>
+                            <li class="list-group-item" id="articleCount">
+                                <strong>10</strong>篇文章（<strong>2</strong>篇草稿）
+                            </li>
+                            <li class="list-group-item" id="categoryCount">
+                                <strong>6</strong>个分类
+                            </li>
+                            <li class="list-group-item" id="commentsCount">
+                                <strong>5</strong>条评论（<strong>1</strong>条待审核）
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -57,8 +58,8 @@
 
     <div class="aside">
         <div class="profile">
-            <img class="avatar" src="../uploads/avatar.jpg">
-            <h3 class="name">Coder</h3>
+            <img class="avatar" id="usersLogo">
+            <h3 class="name" id="userName"></h3>
         </div>
         <ul class="nav">
             <li class="active">
@@ -99,6 +100,7 @@
     </script>
     //退出
     <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/index.js"></script>
 </body>
 
 </html>
